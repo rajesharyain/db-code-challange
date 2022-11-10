@@ -1,5 +1,23 @@
 # db-code-challange
 Trades transmission in tradestore
+Write a Java programm with all the unit cases, prefferbly TDD approach.
+
+## Problem Statement
+There is a scenario where thousands of trades are following into one store, assume any way of transmission of trades. We need to create a one trade store, which stores the trade in the following order.
+
+#### assignment1
+
+TradeID  |  Version |  Counter-Part ID |  Book-ID |  Maturity Date |  Created Date      |  Expired
+1. T1    |   1       |    CP-1         |     B1   |    20/05/2020  |      Today Date    |   N
+2. T2    |   2       |    CP-2         |     B1   |    20/05/2021  |      Today Date    |   N
+3. T2    |   1       |    CP-1         |     B1   |    20/05/2021  |      14/03/2015    |   N
+4. T3    |   3       |    CP-3         |     B3   |    20/05/2014  |      Today Date    |   Y
+
+
+There are couples of validation, we need to provide in the above assignment1. 
+1. During transmission if the lower version is being received by the store it will reject the trade and throw an exception. If the version is same it will override the existing record.
+2. Store should not allow the trade which has less maturity date then today date.
+3. Store should automtically update the expire flag if in a store the trade crosses the maturity date.
 
 # Api
   GET http://localhost:8080/api/trades
